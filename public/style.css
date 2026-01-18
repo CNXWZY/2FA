@@ -365,9 +365,9 @@ footer {
 
 .toast {
   position: fixed;
-  bottom: 32px;
+  top: 20px;
   left: 50%;
-  transform: translateX(-50%) translateY(100px);
+  transform: translateX(-50%) translateY(-100px);
   background: var(--text-primary);
   color: white;
   padding: 14px 28px;
@@ -378,6 +378,7 @@ footer {
   transition: all 0.3s ease;
   z-index: 1000;
   box-shadow: var(--shadow-lg);
+  pointer-events: none;
 }
 
 .toast.show {

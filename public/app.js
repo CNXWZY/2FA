@@ -133,6 +133,15 @@ class App {
     document.getElementById('secretKey').addEventListener('keypress', (e) => {
       if (e.key === 'Enter') this.handleAddAccount();
     });
+
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('copy-btn')) {
+        const codeElement = e.target.closest('.account-item').querySelector('.code');
+        if (codeElement) {
+          this.handleCopy(codeElement.textContent);
+        }
+      }
+    });
   }
 
   handleAddAccount() {
@@ -205,7 +214,7 @@ class App {
         <div class="totp-display">
           <span class="code" data-secret="${this.escapeHTML(account.secret)}">Loading...</span>
           <div class="code-actions">
-            <button class="copy-btn" onclick="app.handleCopy(this.previousElementSibling.textContent)">
+            <button class="copy-btn" data-copy="true">
               复制
             </button>
             <div class="timer">
